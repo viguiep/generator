@@ -54,7 +54,7 @@ MY_SUGGESTIONS['unhealthy_food_2'] = ['toffees', 'chocolates', 'macarons']
 MY_SUGGESTIONS['unhealthy_food_3'] = ['chips', 'doughnuts', 'pancakes']
 MY_SUGGESTIONS['unhealthy_food_4'] = ['muffins','cupcakes','pizzas']
 MY_SUGGESTIONS['unhealthy_food_5'] = ['lollipops','jelly babies','humbugs','fruit gums']
-MY_SUGGESTIONS['nb_animals'] = (1,2,3,4,5)
+MY_SUGGESTIONS['nb_animals'] = [1,2,3,4,5]
 
 MY_IDs = ['hero_firstname', 'hero_lastname', 'hero_gender', 'hero_adj',
           'animal', 'animal_adj_not_size', 'nb_animals', 'friend_firstname', 'friend_lastname', 'friend_gender', 'friend_relationship',
