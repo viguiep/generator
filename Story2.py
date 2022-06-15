@@ -87,6 +87,20 @@ MY_SUGGESTIONS['nb_animals'] = ['1','2','3','4','5']
 # ******************************************
 st.title('Story generator (Fairytale)')
 
+with open('story.txt') as f:
+    SENTENCES = f.readlines()
+
+if st.button('GENERATE STORY'):
+    st.session_state['hero_firstname']
+    for sentence in SENTENCES:
+        new_sentence = sentence.replace('HERO_FIRSTNAME', st.session_state['hero_firstname'])
+        new_sentence = new_sentence.replace('HERO_LASTNAME', st.session_state['hero_lastname'])
+        new_sentence = new_sentence.replace('FRIEND_FIRSTNAME', st.session_state['friend_firstname'])
+        new_sentence = new_sentence.replace('FRIEND_LASTNAME', st.session_state['friend_lastname'])
+        new_sentence = new_sentence.replace('FRIEND_RELATIONSHIP', st.session_state['friend_relationship'])
+
+        st.write(new_sentence)
+
 """
 Principle:
 - enter the data with a FORM
@@ -117,6 +131,8 @@ def get_info(my_field):
     with col_2:
         my_value = st.text_input('', key=my_field, value=st.session_state[my_field])
 
+
+
 st.sidebar.title('Informations')
 
 MY_SUGGESTED_FIELDS = ['hero_adj', 'animal', 'animal_adj_not_size', 'nb_animals', 'forest', 'toy', 'color', 'clothing',
@@ -140,12 +156,12 @@ with st.sidebar:
             st.session_state[my_field] =random.choice(MY_SUGGESTIONS[my_field])
 
     st.subheader('The hero')
-    THE_HERO = ['hero_firstname', 'hero_lastname', 'hero_gender', 'hero_adj', 'toy', 'color', 'clothing']
+    THE_HERO = ['hero_firstname', 'hero_lastname', 'hero_gender', 'hero_adj', 'toy']
     for my_field in THE_HERO:
         get_info(my_field)
 
     st.subheader('The villain')
-    THE_VILLAIN = ['animal', 'animal_adj_not_size', 'nb_animals']
+    THE_VILLAIN = ['animal', 'animal_adj_not_size', 'nb_animals', 'color', 'clothing']
     for my_field in THE_VILLAIN:
         get_info(my_field)
     st.subheader('The sidekick')
